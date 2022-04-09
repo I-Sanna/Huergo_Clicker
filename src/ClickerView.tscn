@@ -1,0 +1,257 @@
+[gd_scene load_steps=43 format=2]
+
+[ext_resource path="res://assets/ui/fichita blanca.png" type="Texture" id=1]
+[ext_resource path="res://assets/animacion_ficha_blanca/firma_1.png" type="Texture" id=2]
+[ext_resource path="res://assets/animacion_ficha_blanca/firma_2.png" type="Texture" id=3]
+[ext_resource path="res://assets/animacion_ficha_blanca/firma_5.png" type="Texture" id=4]
+[ext_resource path="res://assets/animacion_ficha_blanca/firma_7.png" type="Texture" id=5]
+[ext_resource path="res://assets/animacion_ficha_blanca/firma_4.png" type="Texture" id=6]
+[ext_resource path="res://assets/animacion_ficha_blanca/firma_3.png" type="Texture" id=7]
+[ext_resource path="res://assets/animacion_ficha_blanca/firma_6.png" type="Texture" id=8]
+[ext_resource path="res://assets/animacion_ficha_blanca/firma_8.png" type="Texture" id=9]
+[ext_resource path="res://assets/animacion_ficha_blanca/firma_12.png" type="Texture" id=10]
+[ext_resource path="res://src/HuergoClicker.gd" type="Script" id=11]
+[ext_resource path="res://assets/bg/backgroundUpgrades.png" type="Texture" id=12]
+[ext_resource path="res://assets/ui/ficha blanca.png" type="Texture" id=13]
+[ext_resource path="res://assets/animacion_ficha_blanca/firma_13.png" type="Texture" id=14]
+[ext_resource path="res://assets/animacion_ficha_blanca/firmado.png" type="Texture" id=15]
+[ext_resource path="res://assets/animacion_ficha_blanca/firma_15.png" type="Texture" id=16]
+[ext_resource path="res://assets/animacion_ficha_blanca/firma_14.png" type="Texture" id=17]
+[ext_resource path="res://assets/animacion_ficha_blanca/firma_10.png" type="Texture" id=18]
+[ext_resource path="res://assets/animacion_ficha_blanca/firma_9.png" type="Texture" id=19]
+[ext_resource path="res://assets/animacion_ficha_blanca/firma_11.png" type="Texture" id=20]
+[ext_resource path="res://src/Camaras.tscn" type="PackedScene" id=21]
+[ext_resource path="res://font/SuperLegendBoy-4w8Y.ttf" type="DynamicFontData" id=22]
+[ext_resource path="res://assets/bg/bgAula.png" type="Texture" id=23]
+[ext_resource path="res://assets/ui/escritorio.png" type="Texture" id=24]
+[ext_resource path="res://src/Bouncing.tscn" type="PackedScene" id=25]
+[ext_resource path="res://src/Comida.tscn" type="PackedScene" id=26]
+[ext_resource path="res://src/Computadoras.tscn" type="PackedScene" id=27]
+[ext_resource path="res://src/Mails.tscn" type="PackedScene" id=28]
+[ext_resource path="res://src/Lapices.tscn" type="PackedScene" id=29]
+[ext_resource path="res://src/UpgradeClick.tscn" type="PackedScene" id=30]
+[ext_resource path="res://src/Preceptores.tscn" type="PackedScene" id=31]
+[ext_resource path="res://src/Celulares.tscn" type="PackedScene" id=32]
+
+[sub_resource type="SpriteFrames" id=4]
+animations = [ {
+"frames": [ ExtResource( 13 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 7 ), ExtResource( 6 ), ExtResource( 4 ), ExtResource( 8 ), ExtResource( 5 ), ExtResource( 9 ), ExtResource( 19 ), ExtResource( 18 ), ExtResource( 20 ), ExtResource( 10 ), ExtResource( 14 ), ExtResource( 17 ), ExtResource( 16 ), ExtResource( 15 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 78, 104 )
+
+[sub_resource type="ParticlesMaterial" id=3]
+emission_shape = 2
+emission_box_extents = Vector3( 200, 100, 1 )
+flag_disable_z = true
+gravity = Vector3( 0, 98, 0 )
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+
+[sub_resource type="DynamicFont" id=10]
+size = 20
+font_data = ExtResource( 22 )
+
+[sub_resource type="StyleBoxTexture" id=11]
+texture = ExtResource( 12 )
+region_rect = Rect2( 0, 0, 128, 64 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 20
+font_data = ExtResource( 22 )
+
+[sub_resource type="StyleBoxTexture" id=12]
+texture = ExtResource( 12 )
+region_rect = Rect2( 0, 0, 128, 64 )
+
+[sub_resource type="DynamicFont" id=7]
+size = 24
+font_data = ExtResource( 22 )
+
+[sub_resource type="DynamicFont" id=8]
+font_data = ExtResource( 22 )
+
+[sub_resource type="StyleBoxFlat" id=9]
+bg_color = Color( 0, 0, 0, 1 )
+
+[node name="HuergoClicker" type="Node2D"]
+script = ExtResource( 11 )
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+margin_right = 1030.0
+margin_bottom = 533.0
+texture = ExtResource( 23 )
+
+[node name="Desktop" type="NinePatchRect" parent="."]
+margin_top = 533.0
+margin_right = 1030.0
+margin_bottom = 720.0
+texture = ExtResource( 24 )
+
+[node name="BackgroundUpgrades" type="NinePatchRect" parent="."]
+margin_left = 1030.0
+margin_right = 1280.0
+margin_bottom = 720.0
+texture = ExtResource( 12 )
+
+[node name="FB_Area" type="Area2D" parent="."]
+position = Vector2( 528, 624 )
+scale = Vector2( 0.75, 0.75 )
+
+[node name="FB_Animation" type="AnimatedSprite" parent="FB_Area"]
+scale = Vector2( 6.5, 6.5 )
+frames = SubResource( 4 )
+speed_scale = 10.0
+
+[node name="FB_Collision" type="CollisionShape2D" parent="FB_Area"]
+position = Vector2( -1.14441e-05, 3.05176e-05 )
+shape = SubResource( 2 )
+
+[node name="Effect2D" type="Particles2D" parent="."]
+position = Vector2( 526, 507 )
+rotation = -3.14159
+emitting = false
+amount = 10
+process_material = SubResource( 3 )
+texture = ExtResource( 1 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.1
+
+[node name="ClickTimer" type="Timer" parent="."]
+wait_time = 0.5
+
+[node name="TimerEffect" type="Timer" parent="."]
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+margin_left = 648.0
+margin_top = 552.0
+margin_right = 997.0
+margin_bottom = 688.0
+
+[node name="Upgrades" parent="ScrollContainer" instance=ExtResource( 30 )]
+margin_right = 336.0
+margin_bottom = 404.0
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+margin_left = 1030.0
+margin_right = 1280.0
+margin_bottom = 720.0
+custom_constants/margin_top = 20
+custom_constants/margin_left = 20
+custom_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 250.0
+margin_bottom = 700.0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/VBoxContainer"]
+margin_right = 230.0
+margin_bottom = 680.0
+rect_min_size = Vector2( 0, 680 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/ScrollContainer"]
+margin_right = 212.0
+margin_bottom = 948.0
+
+[node name="Lapices" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" instance=ExtResource( 29 )]
+margin_left = 0.0
+margin_top = 0.0
+margin_right = 212.0
+margin_bottom = 132.0
+
+[node name="Computadoras" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" instance=ExtResource( 27 )]
+margin_left = 0.0
+margin_top = 136.0
+margin_right = 212.0
+margin_bottom = 268.0
+
+[node name="Celulares" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" instance=ExtResource( 32 )]
+margin_left = 0.0
+margin_top = 272.0
+margin_right = 212.0
+margin_bottom = 404.0
+
+[node name="Camaras" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" instance=ExtResource( 21 )]
+margin_left = 0.0
+margin_top = 408.0
+margin_right = 212.0
+margin_bottom = 540.0
+
+[node name="Preceptores" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" instance=ExtResource( 31 )]
+margin_left = 0.0
+margin_top = 544.0
+margin_right = 212.0
+margin_bottom = 676.0
+
+[node name="Comida" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" instance=ExtResource( 26 )]
+margin_left = 0.0
+margin_top = 680.0
+margin_right = 212.0
+margin_bottom = 812.0
+
+[node name="Mails" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" instance=ExtResource( 28 )]
+margin_left = 0.0
+margin_top = 816.0
+margin_right = 212.0
+margin_bottom = 948.0
+
+[node name="Puntaje" type="Label" parent="."]
+margin_top = 568.0
+margin_right = 40.0
+margin_bottom = 582.0
+custom_fonts/font = SubResource( 10 )
+custom_styles/normal = SubResource( 11 )
+text = "Fichas blancas: 0"
+
+[node name="FichasPorSegundo" type="Label" parent="."]
+margin_top = 640.0
+margin_right = 273.0
+margin_bottom = 664.0
+custom_fonts/font = SubResource( 6 )
+custom_styles/normal = SubResource( 12 )
+text = "Fichas blancas/s: 0"
+
+[node name="Bouncing" parent="." instance=ExtResource( 25 )]
+
+[node name="Effect" type="Label" parent="."]
+margin_left = 32.0
+margin_top = 24.0
+margin_right = 412.0
+margin_bottom = 154.0
+rect_min_size = Vector2( 350, 0 )
+custom_fonts/font = SubResource( 7 )
+autowrap = true
+
+[node name="Description" type="Label" parent="."]
+margin_left = 560.0
+margin_top = 21.0
+margin_right = 1000.0
+margin_bottom = 106.0
+rect_min_size = Vector2( 300, 0 )
+custom_fonts/font = SubResource( 8 )
+custom_styles/normal = SubResource( 9 )
+text = "Precio: 15.0
+
+Los clicks generan ahora un 2% mas de las fichas blancas actuales"
+align = 1
+autowrap = true
+
+[connection signal="input_event" from="FB_Area" to="." method="_on_FB_Area_input_event"]
+[connection signal="animation_finished" from="FB_Area/FB_Animation" to="." method="_on_FB_Animation_animation_finished"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="timeout" from="ClickTimer" to="." method="_on_ClickTimer_timeout"]
+[connection signal="timeout" from="TimerEffect" to="." method="_on_TimerEffectx7_timeout"]
+[connection signal="camara_upgrade_bought" from="ScrollContainer/Upgrades" to="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Camaras" method="_on_Upgrades_camara_upgrade_bought"]
+[connection signal="celular_upgrade_bought" from="ScrollContainer/Upgrades" to="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Celulares" method="_on_Upgrades_celular_upgrade_bought"]
+[connection signal="click_upgrade_bought" from="ScrollContainer/Upgrades" to="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Lapices" method="_on_Upgrades_click_upgrade_bought"]
+[connection signal="comida_upgrade_bought" from="ScrollContainer/Upgrades" to="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Comida" method="_on_Upgrades_comida_upgrade_bought"]
+[connection signal="computadora_upgrade_bought" from="ScrollContainer/Upgrades" to="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Computadoras" method="_on_Upgrades_computadora_upgrade_bought"]
+[connection signal="mail_upgrade_bought" from="ScrollContainer/Upgrades" to="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Mails" method="_on_Upgrades_mail_upgrade_bought"]
+[connection signal="preceptor_upgrade_bought" from="ScrollContainer/Upgrades" to="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Preceptores" method="_on_Upgrades_preceptor_upgrade_bought"]
