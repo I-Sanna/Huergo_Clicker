@@ -23,6 +23,7 @@ _global_script_class_icons={
 config/name="Huergo Clicker"
 run/main_scene="res://src/ClickerView.tscn"
 config/icon="res://icon.png"
+config/windows_native_icon="res://exe_icon.ico"
 
 [display]
 

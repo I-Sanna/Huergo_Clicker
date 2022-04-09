@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=2]
+[gd_scene load_steps=45 format=2]
 
 [ext_resource path="res://assets/ui/fichita blanca.png" type="Texture" id=1]
 [ext_resource path="res://assets/animacion_ficha_blanca/firma_1.png" type="Texture" id=2]
@@ -33,6 +33,11 @@
 [ext_resource path="res://src/Preceptores.tscn" type="PackedScene" id=31]
 [ext_resource path="res://src/Celulares.tscn" type="PackedScene" id=32]
 [ext_resource path="res://assets/wall.jpg" type="Texture" id=33]
+[ext_resource path="res://assets/ui/fondo mejoras.png" type="Texture" id=34]
+
+[sub_resource type="DynamicFont" id=7]
+size = 24
+font_data = ExtResource( 22 )
 
 [sub_resource type="SpriteFrames" id=4]
 animations = [ {
@@ -69,10 +74,6 @@ font_data = ExtResource( 22 )
 texture = ExtResource( 12 )
 region_rect = Rect2( 0, 0, 128, 64 )
 
-[sub_resource type="DynamicFont" id=7]
-size = 24
-font_data = ExtResource( 22 )
-
 [sub_resource type="DynamicFont" id=8]
 font_data = ExtResource( 22 )
 
@@ -81,6 +82,12 @@ bg_color = Color( 0, 0, 0, 1 )
 
 [node name="HuergoClicker" type="Node2D"]
 script = ExtResource( 11 )
+
+[node name="TextureButton" type="TextureButton" parent="."]
+margin_left = 385.0
+margin_top = 558.0
+margin_right = 425.0
+margin_bottom = 598.0
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
 margin_right = 1030.0
@@ -92,6 +99,22 @@ margin_top = 533.0
 margin_right = 1030.0
 margin_bottom = 720.0
 texture = ExtResource( 24 )
+
+[node name="FondoMejoras" type="Sprite" parent="."]
+visible = false
+position = Vector2( 499.5, 238.5 )
+scale = Vector2( 1.9925, 1.15 )
+texture = ExtResource( 34 )
+
+[node name="Effect" type="Label" parent="."]
+margin_left = 342.0
+margin_top = 197.0
+margin_right = 722.0
+margin_bottom = 327.0
+rect_min_size = Vector2( 350, 0 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 7 )
+autowrap = true
 
 [node name="BackgroundUpgrades" type="NinePatchRect" parent="."]
 margin_left = 1030.0
@@ -225,15 +248,6 @@ custom_styles/normal = SubResource( 12 )
 text = "Fichas blancas/s: 0"
 
 [node name="Bouncing" parent="." instance=ExtResource( 25 )]
-
-[node name="Effect" type="Label" parent="."]
-margin_left = 32.0
-margin_top = 24.0
-margin_right = 412.0
-margin_bottom = 154.0
-rect_min_size = Vector2( 350, 0 )
-custom_fonts/font = SubResource( 7 )
-autowrap = true
 
 [node name="Description" type="Label" parent="."]
 margin_left = 560.0

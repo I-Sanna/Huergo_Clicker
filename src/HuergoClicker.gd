@@ -67,16 +67,19 @@ func ask_upgrade(price: float, exponential:int, fichas_p_s: float, exp_seg: int)
 func effect_on(effect):
 	match effect:
 		"x7":
+			$FondoMejoras.visible = true
 			$TimerEffect.wait_time = 70
 			multiplier = 7
 			$Effect.text = "EFECTO ACTIVADO: X7 FICHAS BLANCAS"
 			$TimerEffect.start()		
 		"x777":
+			$FondoMejoras.visible = true
 			$TimerEffect.wait_time = 40
 			multiplier_clicks = 777
 			$Effect.text = "EFECTO ACTIVADO: X777 FICHAS BLANCAS POR CLICK"
 			$TimerEffect.start()
 		"%10":
+			$FondoMejoras.visible = true
 			$TimerEffect.wait_time = 5
 			fichas_blancas += fichas_blancas * 0.1
 			$Effect.text = "EFECTO ACTIVADO: OBTUVISTE +10% DE TUS FICHAS BLANCAS"
@@ -86,6 +89,7 @@ func _on_TimerEffectx7_timeout():
 	multiplier = 1
 	multiplier_clicks = 1
 	$Effect.text = ""
+	$FondoMejoras.visible = false
 
 func upgrade_click(clicks: int, percentage: float):
 	cantidad_por_click += clicks

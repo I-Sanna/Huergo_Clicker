@@ -9,11 +9,11 @@ func _ready():
 
 func add_level(level: int):
 	match level: #Unlock one lv of upgrade for this
-		100:
+		60:
 			owner.modify_upgrades("camara")
-		200:
+		120:
 			owner.modify_upgrades("camara")	
-		300:
+		180:
 			owner.modify_upgrades("camara")
 
 

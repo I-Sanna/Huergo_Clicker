@@ -10,15 +10,15 @@ func _ready():
 	
 func add_level(level: int):
 	match level: #Unlock one lv of upgrade for this
-		100:
+		60:
 			owner.modify_upgrades("click")
-		200:
+		120:
 			owner.modify_upgrades("click")	
+		180:
+			owner.modify_upgrades("click")
+		240:
+			owner.modify_upgrades("click")
 		300:
-			owner.modify_upgrades("click")
-		400:
-			owner.modify_upgrades("click")
-		500:
 			owner.modify_upgrades("click")
 
 func _on_TextureButton_pressed():

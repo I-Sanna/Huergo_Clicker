@@ -8,15 +8,15 @@ func _ready():
 
 func add_level(level: int):
 	match level: #Unlock one lv of upgrade for this
-		100:
+		60:
 			owner.modify_upgrades("computadora")
-		200:
+		120:
 			owner.modify_upgrades("computadora")	
+		180:
+			owner.modify_upgrades("computadora")
+		240:
+			owner.modify_upgrades("computadora")
 		300:
-			owner.modify_upgrades("computadora")
-		400:
-			owner.modify_upgrades("computadora")
-		500:
 			owner.modify_upgrades("computadora")
 
 

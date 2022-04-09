@@ -9,15 +9,15 @@ func _ready():
 	
 func add_level(level: int):
 	match level: #Unlock one lv of upgrade for this
-		100:
+		60:
 			owner.modify_upgrades("celular")
-		200:
+		120:
+			owner.modify_upgrades("celular")	
+		180:
+			owner.modify_upgrades("celular")	
+		240:
 			owner.modify_upgrades("celular")	
 		300:
-			owner.modify_upgrades("celular")	
-		400:
-			owner.modify_upgrades("celular")	
-		500:
 			owner.modify_upgrades("celular")	
 
 func _on_Upgrades_celular_upgrade_bought(photo, Lv):

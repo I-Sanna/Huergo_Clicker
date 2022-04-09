@@ -9,9 +9,9 @@ func _ready():
 
 func add_level(level: int):
 	match level: #Changes photo for each 100 levels|
-		100:
+		60:
 			owner.modify_upgrades("mail")
-		200:
+		120:
 			owner.modify_upgrades("mail")	
 
 
