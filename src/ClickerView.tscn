@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=2]
+[gd_scene load_steps=51 format=2]
 
 [ext_resource path="res://assets/ui/fichita blanca.png" type="Texture" id=1]
 [ext_resource path="res://assets/animacion_ficha_blanca/firma_1.png" type="Texture" id=2]
@@ -34,6 +34,12 @@
 [ext_resource path="res://src/Celulares.tscn" type="PackedScene" id=32]
 [ext_resource path="res://assets/wall.jpg" type="Texture" id=33]
 [ext_resource path="res://assets/ui/fondo mejoras.png" type="Texture" id=34]
+[ext_resource path="res://assets/ui/boton_verde.png" type="Texture" id=35]
+[ext_resource path="res://assets/ui/boton_verde_pressed.png" type="Texture" id=36]
+[ext_resource path="res://assets/ui/boton_azul_pressed.png" type="Texture" id=37]
+[ext_resource path="res://assets/ui/boton_azul.png" type="Texture" id=38]
+[ext_resource path="res://assets/ui/boton_rojo_pressed.png" type="Texture" id=39]
+[ext_resource path="res://assets/ui/boton_rojo.png" type="Texture" id=40]
 
 [sub_resource type="DynamicFont" id=7]
 size = 24
@@ -62,17 +68,15 @@ orbit_velocity_random = 0.0
 size = 20
 font_data = ExtResource( 22 )
 
-[sub_resource type="StyleBoxTexture" id=11]
-texture = ExtResource( 12 )
-region_rect = Rect2( 0, 0, 128, 64 )
+[sub_resource type="StyleBoxFlat" id=11]
+bg_color = Color( 0, 0, 0, 0.666667 )
 
 [sub_resource type="DynamicFont" id=6]
 size = 20
 font_data = ExtResource( 22 )
 
-[sub_resource type="StyleBoxTexture" id=12]
-texture = ExtResource( 12 )
-region_rect = Rect2( 0, 0, 128, 64 )
+[sub_resource type="StyleBoxFlat" id=12]
+bg_color = Color( 0, 0, 0, 0.666667 )
 
 [sub_resource type="DynamicFont" id=8]
 font_data = ExtResource( 22 )
@@ -82,12 +86,6 @@ bg_color = Color( 0, 0, 0, 1 )
 
 [node name="HuergoClicker" type="Node2D"]
 script = ExtResource( 11 )
-
-[node name="TextureButton" type="TextureButton" parent="."]
-margin_left = 385.0
-margin_top = 558.0
-margin_right = 425.0
-margin_bottom = 598.0
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
 margin_right = 1030.0
@@ -152,6 +150,7 @@ wait_time = 0.5
 [node name="TimerEffect" type="Timer" parent="."]
 
 [node name="Wall" type="Sprite" parent="."]
+modulate = Color( 1, 1, 1, 0.784314 )
 position = Vector2( 822.5, 618.5 )
 scale = Vector2( 0.757384, 0.305907 )
 texture = ExtResource( 33 )
@@ -240,9 +239,9 @@ custom_styles/normal = SubResource( 11 )
 text = "Fichas blancas: 0"
 
 [node name="FichasPorSegundo" type="Label" parent="."]
-margin_top = 640.0
+margin_top = 650.0
 margin_right = 273.0
-margin_bottom = 664.0
+margin_bottom = 674.0
 custom_fonts/font = SubResource( 6 )
 custom_styles/normal = SubResource( 12 )
 text = "Fichas blancas/s: 0"
@@ -262,6 +261,30 @@ text = "Precio: 15.0
 Los clicks generan ahora un 2% mas de las fichas blancas actuales"
 align = 1
 autowrap = true
+
+[node name="btnGuardar" type="TextureButton" parent="."]
+margin_left = 245.0
+margin_top = 600.0
+margin_right = 353.0
+margin_bottom = 643.0
+texture_normal = ExtResource( 35 )
+texture_pressed = ExtResource( 36 )
+
+[node name="btnCargar" type="TextureButton" parent="."]
+margin_left = 5.0
+margin_top = 600.0
+margin_right = 113.0
+margin_bottom = 643.0
+texture_normal = ExtResource( 38 )
+texture_pressed = ExtResource( 37 )
+
+[node name="btnSalir" type="TextureButton" parent="."]
+margin_left = 125.0
+margin_top = 600.0
+margin_right = 233.0
+margin_bottom = 643.0
+texture_normal = ExtResource( 40 )
+texture_pressed = ExtResource( 39 )
 
 [connection signal="input_event" from="FB_Area" to="." method="_on_FB_Area_input_event"]
 [connection signal="animation_finished" from="FB_Area/FB_Animation" to="." method="_on_FB_Animation_animation_finished"]
