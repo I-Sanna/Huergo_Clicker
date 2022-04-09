@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=2]
+[gd_scene load_steps=44 format=2]
 
 [ext_resource path="res://assets/ui/fichita blanca.png" type="Texture" id=1]
 [ext_resource path="res://assets/animacion_ficha_blanca/firma_1.png" type="Texture" id=2]
@@ -32,6 +32,7 @@
 [ext_resource path="res://src/UpgradeClick.tscn" type="PackedScene" id=30]
 [ext_resource path="res://src/Preceptores.tscn" type="PackedScene" id=31]
 [ext_resource path="res://src/Celulares.tscn" type="PackedScene" id=32]
+[ext_resource path="res://assets/wall.jpg" type="Texture" id=33]
 
 [sub_resource type="SpriteFrames" id=4]
 animations = [ {
@@ -126,6 +127,11 @@ wait_time = 0.1
 wait_time = 0.5
 
 [node name="TimerEffect" type="Timer" parent="."]
+
+[node name="Wall" type="Sprite" parent="."]
+position = Vector2( 822.5, 618.5 )
+scale = Vector2( 0.757384, 0.305907 )
+texture = ExtResource( 33 )
 
 [node name="ScrollContainer" type="ScrollContainer" parent="."]
 margin_left = 648.0
