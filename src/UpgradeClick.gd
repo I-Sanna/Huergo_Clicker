@@ -68,80 +68,164 @@ var descriptions: Dictionary = {
 	"Celular5" : "'¿Te gusta el CS? ¿Te gusta el colegio? Combina los 2 con este increible producto'"
 }
 
+func load_shadows(upgrades:Dictionary):
+	for key in upgrades.keys():
+		modify_shadow(key, upgrades[key])
+
+func load_data(upgrade_name: String, levels_bought: Array):
+	var max_click: int = 0
+	for level in levels_bought:
+		level = int(level)
+		match upgrade_name:
+			"click":
+				match level:
+					1:
+						$Click1.visible = false
+					2:
+						$Click2.visible = false
+					3:
+						$Click3.visible = false
+					4:
+						$Click4.visible = false
+					5:
+						$Click5.visible = false
+			"mail":
+				match level:
+					1:
+						$Mail1.visible = false
+					2:
+						$Mail2.visible = false
+			"computadora":
+				match level:
+					1:
+						$Computadora1.visible = false
+					2:
+						$Computadora2.visible = false
+					3:
+						$Computadora3.visible = false
+					4:
+						$Computadora4.visible = false
+					5:
+						$Group4Computadora5.visible = false
+			"comida":
+				match level:
+					1:
+						$Comida1.visible = false
+					2:
+						$Comida2.visible = false
+					3:
+						$Comida3.visible = false
+					4:
+						$Comida4.visible = false
+			"camara":
+				match level:
+					1:
+						$Camara1.visible = false
+					2:
+						$Camara2.visible = false
+					3:
+						$Camara3.visible = false
+			"mail":
+				match level:
+					1:
+						$Mail1.visible = false
+					2:
+						$Mail2.visible = false
+			"preceptor":
+				match level:
+					1:
+						$Preceptor1.visible = false
+					2:
+						$Preceptor2.visible = false
+					3:
+						$Preceptor3.visible = false
+			"celular":
+				match level:
+					1:
+						$Celular1.visible = false
+					2:
+						$Celular2.visible = false
+					3:
+						$Celular3.visible = false
+					4:
+						$Celular4.visible = false
+					5:
+						$Celular5.visible = false
+
 func modify_shadow(upgrade: String, level: int):
 	#Disables the shadow of the unlocked upgrade
 	match upgrade:
 		"click":
 			match level:
-				1:
+				1, 2, 3, 4, 5:
 					$Click1/Shadow.visible = false
-				2:
+				2, 3, 4, 5:
 					$Click2/Shadow.visible = false
-				3:
+				3, 4, 5:
 					$Click3/Shadow.visible = false
-				4:
+				4, 5:
 					$Click4/Shadow.visible = false
 				5:
 					$Click5/Shadow.visible = false
 		"mail":
 			match level:
-				1:
+				1, 2:
 					$Mail1/Shadow.visible = false
 				2:
 					$Mail2/Shadow.visible = false
 		"computadora":
 			match level:
-				1:
+				1, 2, 3, 4, 5:
 					$Computadora1/Shadow.visible = false
-				2:
+				2, 3, 4, 5:
 					$Computadora2/Shadow.visible = false
-				3:
+				3, 4, 5:
 					$Computadora3/Shadow.visible = false
-				4:
+				4, 5:
 					$Computadora4/Shadow.visible = false
 				5:
 					$Group4Computadora5/Shadow.visible = false
 		"comida":
 			match level:
-				1:
+				1, 2, 3, 4:
 					$Comida1/Shadow.visible = false
-				2:
+				2, 3, 4:
 					$Comida2/Shadow.visible = false
-				3:
+				3, 4:
 					$Comida3/Shadow.visible = false
 				4:
 					$Comida4/Shadow.visible = false
 		"camara":
 			match level:
-				1:
+				1, 2, 3:
 					$Camara1/Shadow.visible = false
-				2:
+				2, 3:
 					$Camara2/Shadow.visible = false
 				3:
 					$Camara3/Shadow.visible = false
 		"mail":
 			match level:
-				1:
+				1, 2:
 					$Mail1/Shadow.visible = false
 				2:
 					$Mail2/Shadow.visible = false
 		"preceptor":
 			match level:
-				1:
+				1, 2, 3:
 					$Preceptor1/Shadow.visible = false
-				2:
+				2, 3:
 					$Preceptor2/Shadow.visible = false
 				3:
 					$Preceptor3/Shadow.visible = false
 		"celular":
 			match level:
-				1:
+				1, 2, 3, 4, 5:
 					$Celular1/Shadow.visible = false
-				2:
+				2, 3, 4, 5:
 					$Celular2/Shadow.visible = false
-				3:
+				3, 4, 5:
 					$Celular3/Shadow.visible = false
-				4:
+				4, 5:
 					$Celular4/Shadow.visible = false
 				5:
 					$Celular5/Shadow.visible = false

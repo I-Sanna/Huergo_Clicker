@@ -25,6 +25,10 @@ run/main_scene="res://src/ClickerView.tscn"
 config/icon="res://icon.png"
 config/windows_native_icon="res://exe_icon.ico"
 
+[autoload]
+
+PersistentNode="*res://src/PersistentNode.gd"
+
 [display]
 
 window/size/width=1280

@@ -10,15 +10,15 @@ func _ready():
 	
 func add_level(level: int):
 	match level: #Unlock one lv of upgrade for this
-		60:
+		PersistentNode.unlockUpgradeLevel1:
 			owner.modify_upgrades("click")
-		120:
-			owner.modify_upgrades("click")	
-		180:
+		PersistentNode.unlockUpgradeLevel2:
 			owner.modify_upgrades("click")
-		240:
+		PersistentNode.unlockUpgradeLevel3:
 			owner.modify_upgrades("click")
-		300:
+		PersistentNode.unlockUpgradeLevel4:
+			owner.modify_upgrades("click")
+		PersistentNode.unlockUpgradeLevel5:
 			owner.modify_upgrades("click")
 
 func _on_TextureButton_pressed():
@@ -31,4 +31,17 @@ func _on_Upgrades_click_upgrade_bought(photo, Lv):
 	if Lv > upgrade_level: #Checks that the upgrade is better than the actual and replaces it
 		$HBoxContainer/TextureRect.texture = photo
 		upgrade_level = Lv
+		upgrades_bought.append(Lv)
 	owner.upgrade_click(0, 2.0)
+
+func save():
+	var save_dict = {
+		"filename" : get_filename(),
+		"path" : get_path(),
+		"level" : level,
+		"price" : price,
+		"exponent" : exponent,
+		"image_path" : $HBoxContainer/TextureRect.texture.get_path(),
+		"upgrades_list" : ["click", upgrades_bought]
+	}
+	return save_dict

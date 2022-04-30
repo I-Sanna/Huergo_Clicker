@@ -97,54 +97,12 @@ shape = SubResource( 5 )
 position = Vector2( 1209.6, 377.6 )
 shape = SubResource( 5 )
 
-[node name="Nutzen2" type="KinematicBody2D" parent="."]
-visible = false
-position = Vector2( -1008, -88 )
-script = ExtResource( 3 )
-
-[node name="Foto" type="Sprite" parent="Nutzen2"]
-position = Vector2( 1192, 372 )
-scale = Vector2( 1.2, 1.24444 )
-texture = ExtResource( 2 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Nutzen2"]
-position = Vector2( 1209.6, 377.6 )
-shape = SubResource( 5 )
-
-[node name="Area2D" type="Area2D" parent="Nutzen2"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Nutzen2/Area2D"]
-position = Vector2( 1209.6, 377.6 )
-shape = SubResource( 5 )
-
-[node name="Nutzen3" type="KinematicBody2D" parent="."]
-visible = false
-position = Vector2( -1008, -88 )
-script = ExtResource( 3 )
-
-[node name="Foto" type="Sprite" parent="Nutzen3"]
-position = Vector2( 1192, 372 )
-scale = Vector2( 1.2, 1.24444 )
-texture = ExtResource( 2 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Nutzen3"]
-position = Vector2( 1209.6, 377.6 )
-shape = SubResource( 5 )
-
-[node name="Area2D" type="Area2D" parent="Nutzen3"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Nutzen3/Area2D"]
-position = Vector2( 1209.6, 377.6 )
-shape = SubResource( 5 )
-
 [node name="Spawn" type="Timer" parent="."]
-wait_time = 180.0
+wait_time = 18.0
 
 [node name="ExistTime" type="Timer" parent="."]
 wait_time = 20.0
 
 [connection signal="input_event" from="Nutzen/Area2D" to="Nutzen" method="_on_Area2D_input_event"]
-[connection signal="input_event" from="Nutzen2/Area2D" to="Nutzen2" method="_on_Area2D_input_event"]
-[connection signal="input_event" from="Nutzen3/Area2D" to="Nutzen3" method="_on_Area2D_input_event"]
 [connection signal="timeout" from="Spawn" to="." method="_on_Spawn_timeout"]
 [connection signal="timeout" from="ExistTime" to="." method="_on_ExistTime_timeout"]

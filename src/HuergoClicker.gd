@@ -21,10 +21,18 @@ var upgrades: Dictionary = {
 const postfixes_dict = {"0":"", "1":"k", "2":"m", "3":"b", "4":"t", "5":"aa", "6":"ab", "7":"ac", "8":"ad", "9":"ae", "10":"af", "11":"ag", "12":"ah", "13":"ai", "14":"aj", "15":"ak", "16":"al", "17":"am", "18":"an", "19":"ao", "20":"ap", "21":"aq", "22":"ar", "23":"as", "24":"at", "25":"au", "26":"av", "27":"aw", "28":"ax", "29":"ay", "30":"az", "31":"ba", "32":"bb", "33":"bc", "34":"bd", "35":"be", "36":"bf", "37":"bg", "38":"bh", "39":"bi", "40":"bj", "41":"bk", "42":"bl", "43":"bm", "44":"bn", "45":"bo", "46":"bp", "47":"bq", "48":"br", "49":"bs", "50":"bt", "51":"bu", "52":"bv", "53":"bw", "54":"bx", "55":"by", "56":"bz", "57":"ca"}
 
 func _ready():
+	PersistentNode.loadClicker()
+	PersistentNode.loadGame()
 	Input.set_custom_mouse_cursor(preload("res://assets/lapices/lapiz_1.png"), 0, Vector2(5, 60))
 	$Description.visible = false
 	$Timer.start()
+	Input.set_custom_mouse_cursor(load($MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Lapices/HBoxContainer/TextureRect.texture.get_path()), 0, Vector2(5, 60))
 
+func load_data():
+	$Puntaje.text = "Fichas blancas: " + str(fichas_blancas) + " " + postfixes_dict[str(exponent)] 
+	$FichasPorSegundo.text = "Fichas blancas/s: " + str(fichas_por_seg) + postfixes_dict[str(exponent_seg)]
+	$ScrollContainer/Upgrades.load_shadows(upgrades)
+	
 func _on_FB_Area_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton:
 		if event.is_pressed():
@@ -102,7 +110,7 @@ func modify_upgrades(upgrade: String):
 func update_verifier(price: float, exponential: int, type: String, level: int):
 	if exponent > exponential or fichas_blancas >= price and exponent == exponential:
 		if level <= upgrades[type]:
-			minus(fichas_blancas, price, exponent, exponential)
+			fichas_blancas = minus(fichas_blancas, price, exponent, exponential)
 			return true
 	return false
 
@@ -160,3 +168,17 @@ func minus(num1, num2, exp1, exp2):
 
 func draw_assets(image, type: String):
 	pass	
+
+func save():
+	var save_dict = {
+		"filename" : get_filename(),
+		"path" : get_path(),
+		"cantidad_por_click" : cantidad_por_click,
+		"prercentage_clicks" : prercentage_clicks,
+		"fichas_blancas" : fichas_blancas,
+		"exponent" : exponent,
+		"fichas_por_seg" : fichas_por_seg,
+		"exponent_seg" : exponent_seg,
+		"upgrades" : upgrades
+	}
+	return save_dict
